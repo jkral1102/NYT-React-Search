@@ -1,0 +1,15 @@
+.jumbotron {
+    background-color: #20315A; 
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    
+}
+
+

@@ -1,0 +1,35 @@
+#savedArticles{
+    height: 300px;
+    max-width: 40%;
+    background-color: rgba(15, 0, 128, 0.585);
+    float: left;
+    overflow: auto;
+    margin: 20px;
+    text-align: center;
+}
+
+#comments{
+    background-color: rgba(203, 16, 16, 0.531);
+    color: white;
+}
+
+.btn{
+    margin: 10px;
+    font-size: 10px;
+    background-color: rgba(21, 230, 18, 0.544);
+}
+
+input{
+    background-color: rgb(0, 38, 128);
+}
+
+#commentsHeader{
+    font-size: 18px;
+    color: white;
+}
+
+.comment{
+    background-color: rgb(13, 13, 73);
+    color: white;
+    display: block;
+}

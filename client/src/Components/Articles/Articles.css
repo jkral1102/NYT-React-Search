@@ -1,0 +1,19 @@
+.header{
+    background-color: rgb(10, 10, 68);
+    color: white;
+    font-size: 15px;
+}
+
+.title{
+    color: white;
+}
+.title:hover{
+    color: blue;
+}
+.title:visited{
+    color: purple;
+}
+.title:active{
+    color: red;
+}
+

@@ -1,0 +1,33 @@
+#searchInput{
+    background-color: rgba(0, 0, 255, 0.565);
+    color: white;
+    font-size: 28px;
+    font-style: italic;
+    padding: 10px;
+    color: rgb(9, 206, 250);
+    text-align: center;
+}
+
+#searchBtn {
+    height: 60px;
+    width: 150px;
+    font-size: 20px;
+    border: solid 2px mediumseagreen;
+}
+
+.form-group{
+    max-width: 30%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.btn{
+    margin: 0 auto;
+}
+
+input { 
+    background-color: rgb(81, 17, 243);
+    color: white;
+    font-size: 35px;
+}
+

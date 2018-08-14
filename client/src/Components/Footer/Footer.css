@@ -1,0 +1,11 @@
+#footer{
+    height: 6vh;
+    bottom: 0;
+    position: absolute;
+    width: 100vw;
+    background-color: rgb(78, 78, 78);
+    color: rgb(175, 174, 174);
+    line-height: 6vh;
+    vertical-align: middle;
+}
+

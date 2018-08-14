@@ -7,7 +7,12 @@ const articleSchema = new Schema({
   link: { type: String },
   snippet: String,
   date: { type: Date, default: Date.now },
-  comment: []
+  comments: [{
+    comment: { type: String }, 
+    time: {type: Date, default: Date.now }, 
+    username: {type: String}
+  }],
+
 });
 
 const Article = mongoose.model("Article", articleSchema);

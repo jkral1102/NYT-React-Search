@@ -19,7 +19,6 @@ export default {
   },
   // Save comment to db
   postComment: function(id, comment) {
-    
-    return axios.put("/api/articles/" + id,  {comment: comment} );
+    return axios.put("/api/articles/" + id,  {commentBody: comment});
   }
 };

@@ -23,10 +23,10 @@ class Search extends Component {
   render() {
     return (
       // SEARCH FOR NEW ARTICLES
-      <div className="form-group">
+      <div id="searchForm">
         {/* <label for="search">Search Term:</label> */}
-        <input type="text" id="searchInput" onChange={this.handleChange} placeholder="Get more smarter" />
-        <button className="btn waves-effect waves-light" type="Submit" id="searchBtn" onClick={() => this.props.scrapeNew(this.state.search)}> Search</button>
+        <input id='searchInput' type="text" onChange={this.handleChange} placeholder="Search NYT Articles..." />
+        <button className="btn waves-effect waves-light" type="Submit" onClick={() => this.props.scrapeNew(this.state.search)}> Search</button>
         {/* <button type="button" className="btn btn-default" id="clear-all"> Clear Results</button> */}
       </div>
     );

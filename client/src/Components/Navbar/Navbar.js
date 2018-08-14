@@ -1,15 +1,14 @@
 import React from "react";
 import "./Navbar.css";
+import Logo from './logo.png';
 
 
 
 const Navbar = props => (
 
-    <div className="jumbotron">
-    <h1 >
-      <strong>
-        New York Times Search
-      </strong></h1>
+    <div id="navbar">
+
+      <img src={ Logo } alt='logo' />
   </div>
 );
 

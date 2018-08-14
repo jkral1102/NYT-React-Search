@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import './App.css';
-import Navbar from "./Components/Navbar";
-import Articles from "./Components/Articles";
-import Search from "./Components/Search";
-import Saved from "./Components/Saved";
-import API from "./utils/API";
-import axios from 'axios';
+import React, { Component } from 'react'
+import './App.css'
+import Navbar from './Components/Navbar'
+import Articles from './Components/Articles'
+import Search from './Components/Search'
+import Saved from './Components/Saved'
+import Header from './Components/Header'
+import Footer from './Components/Footer'
+import API from './utils/API'
+import axios from 'axios'
 
 
 class App extends Component {
@@ -47,27 +49,26 @@ class App extends Component {
     return axios(authOptions)
       .then((response) => {
         // grab relevant response data
-        //var data = response.data;
         var data = response.data.response.docs;
         this.setState({
           articles: data
         })
-        console.log('fuck');
+        console.log(this.state.articles);
       })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+      .catch(err => console.log(err));
+      };
+  
 
   // POST: Save an article to db
   saveArticle = (article) => {
     //console.log("Saved article:" + article.title);
     API.saveArticle(article)
       .then(res => {
-        console.log("Saved article to db: " + res.data.title)
+        console.log("Saved article to db: " + res.data.title);
         this.setState({
           saved: [...this.state.saved, res.data]
-        })
+        });
+        console.log(this.state.saved)
       })
       .catch(err => console.log(err));
   };
@@ -81,8 +82,7 @@ class App extends Component {
           saved: res.data
         })
         //console.log("All Saved Articles in db: " + res.data)
-      }
-      )
+      })
       .catch(err => console.log(err));
   };
 
@@ -94,11 +94,16 @@ class App extends Component {
   };
 
   // POST: A comment to a specific article id
-  postComment = (id, comment) => {
-
+  postComment = (id, comment, username) => {
+    var newComment = {
+      comment: comment,
+      username: username
+      }
+    
     document.getElementById('commentInput').value = "";
+    document.getElementById('usernameInput').value = "";
 
-    API.postComment(id, comment)
+    API.postComment(id, newComment)
       .then(res => {
         console.log(res)
 
@@ -111,46 +116,80 @@ class App extends Component {
 
 
   render() {
+    let renderSearches =
+      this.state.articles.map(i =>
+        <Articles
+          key={i._id}
+          link={i['web_url']}
+          title={i['headline']['main']}
+          snippet={i['snippet']}
+          saveArticle={this.saveArticle}
+          pubDate={i['pub_date']}
+        />
+      );
+
     let renderSaved =
       this.state.saved.map(i =>
         <Saved
           title={i.title}
+          link={i.link}
+          snippet={i.snippet}
+          date={i.date}
           id={i._id}
           key={i._id}
           delete={this.deleteArticle}
           comment={this.postComment}
-          comments={i.comment}
+          comments={i.comments}
+         
         />
 
       );
 
     return (
-      <div id="wrapper">
+      <div id="App">
 
         <Navbar />
 
-
-        <Search scrapeNew={this.scrapeNew} />
-
-
-        <div id="articleContainer">
-          {this.state.articles.map(i =>
-            <Articles
-              key={i._id}
-              link={i['web_url']}
-              title={i['headline']['main']}
-              snippet={i['snippet']}
-              saveArticle={this.saveArticle}
-            />
-          )}
+      <div id='Content'>
+       
+        <div id='searchDiv'>
+          <Header title='Article Search' />
+          <Search
+            scrapeNew={this.scrapeNew}
+          />
         </div>
+        
 
-        <div id="saved">
-          <p id="savedHeader">Saved Articles</p>
-          {renderSaved}
-        </div>
+       {this.state.articles !== 0 ?
+          <div id="articlesDiv">
+         
+            <Header title='Search Results' />
+            <div id='articles'>
+              {renderSearches}
+            </div>
+          </div>
+          : null
+        }
 
+
+
+        {this.state.saved !== 0 ?
+          <div id="savedArticlesDiv">
+            
+              <Header title='Saved Articles' />
+           
+            {renderSaved}
+          </div>
+
+
+          : null}
+         
       </div>
+
+      <Footer />
+      </div>
+   
+
     )
   }
 }

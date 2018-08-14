@@ -1,15 +1,16 @@
-.jumbotron {
-    background-color: #20315A; 
-    color: white;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin-bottom: 30px;
-    text-align: center;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    
+#navbar {
+    width: 100vw;
+    height: 14vh;
+    background-color: #5380b599;
+    align-items: center;
+    border-bottom: solid 2px grey
+}
+
+#navbar img {
+    height: 8vh;
+    margin: auto;
+    display: block;
+    margin-top: 3vh;
 }
 
 

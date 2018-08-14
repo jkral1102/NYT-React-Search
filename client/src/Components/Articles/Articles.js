@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Articles.css";
+import formatDate from '../../utils/formatDate'
 
 class Articles extends Component {
   constructor(props) {
@@ -13,20 +14,25 @@ class Articles extends Component {
   }
 
   render() {
+  
+   
 
     return (
       // RENDER SEARCHED ARTICLES 
 
-        <div>
-          <div className="header">
-            <a href={this.props.link} target="_blank"><h3 className="title">{this.props.title}</h3>  </a>
-          </div>
+        <div id='articleDiv'>
+          <header>
+            <a href={this.props.link} target="_blank">
+              <p>{this.props.title}</p> 
+            </a>
+            <div class='time'>{formatDate(this.props.pubDate)}</div> 
+          </header>
 
-          {/* <p>{this.props.date}</p> */}
-          <p>{this.props.snippet}</p>
+           {/* <p>{this.props.date}</p>  */}
+          <div class='content'>{this.props.snippet}</div>
    
           
-          <button className="btn waves-effect waves-light" type="submit" id="run-search" value='Submit' onClick={() => { this.props.saveArticle(this.props) }}>Save Article</button> 
+          <button class="btn waves-effect waves-light" type="submit" id="run-search" value='Submit' onClick={() => { this.props.saveArticle(this.props) }}>Save Article</button> 
 
         </div>
 

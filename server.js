@@ -14,7 +14,7 @@ app.use(express.static("client/build"));
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://jenn:MongoDB123@ds155086.mlab.com:55086/heroku_mdsw56fj");
+mongoose.connect("mongodb://jenn1:MongoDB123@ds155086.mlab.com:55086/heroku_mdsw56fj");
 //mongoose.connect("mongodb://localhost/articles");
 // "mongodb://localhost/articles");
 //"mongodb://jenn:MongoDB123@ds155086.mlab.com:55086/heroku_mdsw56fj"
